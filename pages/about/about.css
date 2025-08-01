@@ -17,7 +17,7 @@ nav.pagination-labels {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    gap: 0.5rem;
+    gap: 2rem;
 }
 
 nav.pagination-labels label {
