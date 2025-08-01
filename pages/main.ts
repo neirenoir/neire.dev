@@ -5,8 +5,8 @@ export function neiredevPage(main: HTMLStream[]) {
   return htmlPage({
     title: "neire.dev",
     head: [
-      cssLink("static/css/reset.css"),
-      cssLink("static/css/main.css"),
+      cssLink("/static/css/reset.css"),
+      cssLink("/static/css/main.css"),
     ],
     body: [
       html`
