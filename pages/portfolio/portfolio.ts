@@ -38,6 +38,7 @@ export default [
           const link = (entry.link instanceof URL)
             ? `<a href="${entry.link.href}">${entry.link.href}</a>`
             : entry.link();
+          const animDuration = Math.sqrt(technologies.length) * 2.5;
 
           return html`
             <li class="portfolio-entry">
@@ -51,7 +52,7 @@ export default [
               </div>
               <div class="marquee">
                 <ul style="
-                    animation-duration: ${technologies.length * 2}s;
+                    animation-duration: ${animDuration}s;
                 ">
                   ${technologies}
                 </ul>
