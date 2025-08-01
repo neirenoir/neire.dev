@@ -36,7 +36,7 @@ jobs:
       - name: Setup Deno
         uses: denoland/setup-deno@v1
         with:
-          deno-version: v1.x  # or pin to a specific version if needed
+          deno-version: v2.3.6 # or pin to a specific version if needed
 
       - name: Build site with Deno
         run: deno task build
@@ -44,7 +44,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './build/'
+          path: "./build/"
 
       - name: Deploy to GitHub Pages
         id: deployment
