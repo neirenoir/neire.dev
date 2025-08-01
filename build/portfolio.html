@@ -1,0 +1,379 @@
+
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>neire.dev</title>
+        <link rel="stylesheet" href="static/css/reset.css"><link rel="stylesheet" href="static/css/main.css">
+      </head>
+      <body>
+        
+        <nav>
+          <span class="logo"><a href="/">neire.dev</a></span>
+          <ul>
+            <li><a href="/about">About Me</a></li>
+            <li><a href="/experience">Experience</a></li>
+            <li><a href="/portfolio">Portfolio</a></li>
+            <!--<li><a href="/demos">Demos</a></li>-->
+          </ul>
+          <a href="mailto:contact@neire.dev">Contact</a>
+        </nav>
+      
+        <main>
+          
+          
+        <style>
+          /* Top-level portfolio grid */
+ul.portfolio-entries {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-auto-rows: auto;
+    gap: 1rem;
+    overflow-y: auto;
+    padding: 0.5rem 1.5rem 0 0;
+    list-style: none;
+    margin: 0;
+    position: relative;
+    scrollbar-width: thin;
+}
+
+ul.portfolio-entries::after {
+    content: "";
+    position: sticky;
+    bottom: 0;
+    height: 2rem;
+    background: linear-gradient(to top, black, transparent);
+    pointer-events: none;
+    grid-column: 1 / span 2;
+}
+
+/* Per-entry styling */
+.portfolio-entry {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid white;
+    padding: 1rem;
+}
+
+.portfolio-entry h2 {
+    font-size: 1.4rem;
+    margin: 0 0 0.5rem 0;
+}
+
+.portfolio-entry .portfolio-role {
+    font-size: 0.8rem;
+    margin: 0 0 0.8rem 0;
+    opacity: 0.9;
+}
+
+/* Portfolio description layout */
+.portfolio-description {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    margin-bottom: 0.8rem;
+}
+
+.portfolio-icon {
+    flex: 0 0 50px;
+    width: 50px;
+    height: 50px;
+    display: grid;
+    place-items: center;
+    font-size: 3rem;
+    font-family: Noto, "FontAwesome Brands";
+    margin-top: -0.2em;
+}
+
+/* Marquee animation system */
+.marquee {
+    overflow: hidden;
+    position: relative;
+    margin: 0 0 0.8rem 0;
+    mask-image: linear-gradient(
+        to right,
+        transparent 0%,
+        black 20px,
+        black calc(100% - 20px),
+        transparent 100%
+    );
+}
+
+.marquee ul {
+    display: flex;
+    gap: 0.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: max-content;
+    animation: marquee-scroll 12s linear infinite;
+    padding-right: 100%;
+    flex-direction: row;
+}
+
+@keyframes marquee-scroll {
+    0% {
+        transform: translateX(50%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.marquee:hover ul {
+    animation-play-state: paused;
+}
+
+.marquee li {
+    white-space: nowrap;
+    padding: 0.35rem 1rem;
+    flex-shrink: 0;
+}
+
+/* Link styling */
+.portfolio-entry a {
+    display: inline-block;
+    color: white;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    max-width: 100%;
+    font-size: 0.9rem;
+    opacity: 0.8;
+    transition: opacity 0.2s ease;
+}
+
+.portfolio-entry a:hover {
+    opacity: 1;
+    text-decoration: underline;
+}
+.portfolio-entry,
+.portfolio-description,
+.marquee {
+    min-width: 0;
+}
+
+@font-face {
+    font-family: Noto;
+    src: url(../../static/fonts/Noto/NotoSansSymbols-VariableFont_wght.ttf);
+}
+
+@font-face {
+    font-family: "FontAwesome Brands";
+    src: url(../../static/fonts/FontAwesome/fa-brands-400.woff2);
+}
+
+@media screen and (max-width: 768px) {
+    ul.portfolio-entries {
+        grid-template-columns: 1fr;
+        max-width: 100%;
+        box-sizing: border-box;
+        padding-right: 0;
+    }
+
+    ul.portfolio-entries::after {
+        grid-column: 1;
+    }
+}
+
+        </style>
+      
+          <h1>Portfolio</h1>
+          <ul class="portfolio-entries">
+            <li class="portfolio-entry">
+              <h2>Kanaloa Network</h2>
+              <p class="portfolio-role">CTO, Lead Developer</p>
+              <div class="portfolio-description">
+                <span class="portfolio-icon" role="img">
+                  
+                </span>
+                <span>Modular smart contracts factory with bespoke access control.</span>
+              </div>
+              <div class="marquee">
+                <ul style="
+                    animation-duration: 16s;
+                ">
+                  <li>Solidity</li><li>Foundry</li><li>Avalanche</li><li>Lit</li><li>ethers.js</li><li>Lion</li><li>Nix</li><li>NixOS</li>
+                </ul>
+              </div>
+              <a href="https://app.kanaloa.network/">https://app.kanaloa.network/</a>
+            </li>
+          
+            <li class="portfolio-entry">
+              <h2>neire.dev</h2>
+              <p class="portfolio-role">Solo Developer</p>
+              <div class="portfolio-description">
+                <span class="portfolio-icon" role="img">
+                  <span style='font-size: 1.4em; margin-top: -0.4em;'>◎</span>
+                </span>
+                <span>This website. All handcrafted.</span>
+              </div>
+              <div class="marquee">
+                <ul style="
+                    animation-duration: 6s;
+                ">
+                  <li>TypeScript</li><li>Deno</li><li>Nix</li>
+                </ul>
+              </div>
+              <a href="https://neire.dev/">https://neire.dev/</a>
+            </li>
+          
+            <li class="portfolio-entry">
+              <h2>AEVEREST++</h2>
+              <p class="portfolio-role">Web Developer, Consultor</p>
+              <div class="portfolio-description">
+                <span class="portfolio-icon" role="img">
+                  ⛰
+                </span>
+                <span>2022 Avalanche Summit Hackathon winner. High throughput custom VM.</span>
+              </div>
+              <div class="marquee">
+                <ul style="
+                    animation-duration: 6s;
+                ">
+                  <li>TypeScript</li><li>Deno</li><li>Nix</li>
+                </ul>
+              </div>
+              <a href="https://www.blog.encode.club/avalanche-summit-hackathon-powered-by-encode-club-summary-and-prizewinners-52f4592ffc9d">https://www.blog.encode.club/avalanche-summit-hackathon-powered-by-encode-club-summary-and-prizewinners-52f4592ffc9d</a>
+            </li>
+          
+            <li class="portfolio-entry">
+              <h2><span style='font-size: 0.85em;'>You Don't Have The Right</span></h2>
+              <p class="portfolio-role">Solo Developer</p>
+              <div class="portfolio-description">
+                <span class="portfolio-icon" role="img">
+                  
+                </span>
+                <span>Minecraft mod. Enhances doLimitedCrafting gamerule.</span>
+              </div>
+              <div class="marquee">
+                <ul style="
+                    animation-duration: 10s;
+                ">
+                  <li>Kotlin</li><li>Java</li><li>Minecraft Forge</li><li>Sponge Mixins</li><li>Gradle</li>
+                </ul>
+              </div>
+              <a href="https://modrinth.com/mod/you-dont-have-the-right">https://modrinth.com/mod/you-dont-have-the-right</a>
+            </li>
+          
+            <li class="portfolio-entry">
+              <h2>Bulking</h2>
+              <p class="portfolio-role">Solo Developer</p>
+              <div class="portfolio-description">
+                <span class="portfolio-icon" role="img">
+                  <span style='font-size: 1.4em; margin-top: -0.4em;'>♞</span>
+                </span>
+                <span>Minecraft mod. Overhaul of hunger system.</span>
+              </div>
+              <div class="marquee">
+                <ul style="
+                    animation-duration: 14s;
+                ">
+                  <li>Kotlin</li><li>Java</li><li>Minecraft Forge</li><li>Sponge Mixins</li><li>Architectury</li><li>Diet</li><li>Gradle</li>
+                </ul>
+              </div>
+              <a href="https://modrinth.com/mod/bulking">https://modrinth.com/mod/bulking</a>
+            </li>
+          
+            <li class="portfolio-entry">
+              <h2>Green Feathers</h2>
+              <p class="portfolio-role">Copilot</p>
+              <div class="portfolio-description">
+                <span class="portfolio-icon" role="img">
+                  ♣
+                </span>
+                <span>Minecraft mod. Adds stamina system.</span>
+              </div>
+              <div class="marquee">
+                <ul style="
+                    animation-duration: 8s;
+                ">
+                  <li>Java</li><li>Minecraft Forge</li><li>Sponge Mixins</li><li>Gradle</li>
+                </ul>
+              </div>
+              <a href="https://github.com/Darkona/Green-Feathers">https://github.com/Darkona/Green-Feathers</a>
+            </li>
+          
+            <li class="portfolio-entry">
+              <h2>WAIFU</h2>
+              <p class="portfolio-role">Smart Contract Developer</p>
+              <div class="portfolio-description">
+                <span class="portfolio-icon" role="img">
+                  <span style='font-family: Doto;'>:3</span>
+                </span>
+                <span>Token for the Scarlet Waifu Capital Management DAO.</span>
+              </div>
+              <div class="marquee">
+                <ul style="
+                    animation-duration: 8s;
+                ">
+                  <li>Solidity</li><li>Foundry</li><li>Avalanche</li><li>Nix</li>
+                </ul>
+              </div>
+              <a href="https://weebsite.xyz/">https://weebsite.xyz/</a>
+            </li>
+          
+            <li class="portfolio-entry">
+              <h2>Luna Macabra</h2>
+              <p class="portfolio-role">Author</p>
+              <div class="portfolio-description">
+                <span class="portfolio-icon" role="img">
+                  ☾
+                </span>
+                <span>Lletres Joves Horta-Guinardó 2016 Noir Stories 3rd prize.</span>
+              </div>
+              <div class="marquee">
+                <ul style="
+                    animation-duration: 6s;
+                ">
+                  <li>Cyberpunk</li><li>Noir</li><li>Spanish</li>
+                </ul>
+              </div>
+              
+        <span>
+            <a href="static/docs/luna_macabra.pdf">Spanish</a>
+            |
+            <a href="static/docs/macabre_moon.pdf">English (MTL)</a>
+        </span>
+    
+            </li>
+          
+            <li class="portfolio-entry">
+              <h2>Hipotermia</h2>
+              <p class="portfolio-role">Author</p>
+              <div class="portfolio-description">
+                <span class="portfolio-icon" role="img">
+                  <span style='font-size: 0.9em;'>🖌</span>
+                </span>
+                <span>Lletres Joves Horta-Guinardó 2018 Noir Stories 1st prize.</span>
+              </div>
+              <div class="marquee">
+                <ul style="
+                    animation-duration: 6s;
+                ">
+                  <li>Artpunk</li><li>Noir</li><li>Spanish</li>
+                </ul>
+              </div>
+              
+        <span>
+            <a href="static/docs/morirte_de_frio.pdf">Spanish</a>
+            |
+            <a href="static/docs/freezing_to_death.pdf">English (MTL)</a>
+        </span>
+    
+            </li>
+          </ul>
+        
+        </main>
+      
+        <footer>
+          <span>©</span>
+          <small>
+            neire.dev 2024-2025
+          </small>
+        </footer>
+      
+      </body>
+    </html>
+  

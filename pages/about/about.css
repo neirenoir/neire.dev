@@ -1,0 +1,53 @@
+/* Hide all content by default */
+p.page-content {
+    display: none;
+    height: max-content;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+/* Show active content */
+#about-page1:checked ~ #about-page1-content,
+#about-page2:checked ~ #about-page2-content {
+    display: block;
+}
+
+/* Label styling */
+nav.pagination-labels {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+nav.pagination-labels label {
+    cursor: pointer;
+    padding: 0.5rem 0.5rem;
+    border-radius: 4px;
+}
+
+nav.pagination-labels label::after {
+    font-size: 1.5rem;
+    content: "○";
+}
+
+/* Highlight active page button */
+#about-page1:checked ~ .pagination-labels label[for="about-page1"]::after,
+#about-page2:checked ~ .pagination-labels label[for="about-page2"]::after {
+    content: "◉";
+}
+
+@media screen and (max-width: 768px) {
+    p.page-content {
+        display: block;
+    }
+
+    /* Label styling */
+    nav.pagination-labels {
+        display: none;
+    }
+
+    main {
+        margin-bottom: 2rem;
+    }
+}
