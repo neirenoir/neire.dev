@@ -45,11 +45,11 @@ if (root == null) {
     );
     const dir = dirname(path);
     const file = basename(path);
-    if (!(await exists(join(BUILD_DIR, dir)))) {
-      Deno.mkdir(join(BUILD_DIR, dir), { recursive: true });
+    if (!(await exists(join(BUILD_DIR, dir, file)))) {
+      await Deno.mkdir(join(BUILD_DIR, dir, file), { recursive: true });
     }
     await Deno.writeFile(
-      join(BUILD_DIR, dir, file + ".html"),
+      join(BUILD_DIR, dir, file, "index.html"),
       res.body!,
     );
     node.children?.forEach(recRender);
