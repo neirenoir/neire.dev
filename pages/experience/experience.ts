@@ -66,12 +66,15 @@ export default [
         },
       );
 
-      return new Promise((resolve) =>
-        resolve(html`
-          ${style}
-          <h1>Experience</h1>
-          <ul class="experience-entries">${htmlEntries}</ul>
-        `)
+      return new Promise(
+        (resolve) =>
+          resolve(
+            html`
+              ${style}
+              <h1>Experience</h1>
+              <ul class="experience-entries">${htmlEntries}</ul>
+            `,
+          ),
       );
     },
   },
