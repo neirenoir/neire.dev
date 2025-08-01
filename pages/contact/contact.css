@@ -1,0 +1,36 @@
+.contacts {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.contact {
+    color: white;
+    text-decoration: none;
+    font-size: 5rem;
+    font-family: Noto, "FontAwesome Brands", sans-serif;
+}
+
+a.mail {
+    display: flex;
+    justify-content: center;
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    margin-top: 0.8rem;
+}
+
+a.mail:hover {
+    text-decoration: underline;
+}
+
+@font-face {
+    font-family: Noto;
+    src: url(../../static/fonts/Noto/NotoSansSymbols-VariableFont_wght.ttf);
+}
+
+@font-face {
+    font-family: "FontAwesome Brands";
+    src: url(../../static/fonts/FontAwesome/fa-brands-400.woff2);
+}

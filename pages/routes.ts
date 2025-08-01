@@ -8,6 +8,7 @@ import about from "./about/about.ts";
 import experience from "./experience/experience.ts";
 import portfolio from "./portfolio/portfolio.ts";
 import demos from "./demos/demos.ts";
+import contact from "./contact/contact.ts";
 
 export default new Router(
   [
@@ -41,6 +42,10 @@ export default new Router(
         {
           pattern: new URLPattern({ pathname: "/demos" }),
           content: async (req) => await assemble(req, demos),
+        },
+        {
+          pattern: new URLPattern({ pathname: "/contact" }),
+          content: async (req) => await assemble(req, contact),
         },
       ],
     },

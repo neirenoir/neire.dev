@@ -18,7 +18,7 @@ export function neiredevPage(main: HTMLStream[]) {
             <li><a href="/portfolio">Portfolio</a></li>
             <!--<li><a href="/demos">Demos</a></li>-->
           </ul>
-          <a href="mailto:contact@neire.dev">Contact</a>
+          <a href="/contact">Contact</a>
         </nav>
       `,
       html`
