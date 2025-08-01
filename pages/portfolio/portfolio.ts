@@ -51,9 +51,7 @@ export default [
                 <span>${entry.description}</span>
               </div>
               <div class="marquee">
-                <ul style="
-                    animation-duration: ${animDuration}s;
-                ">
+                <ul style="animation-duration: ${animDuration}s;">
                   ${technologies}
                 </ul>
               </div>
