@@ -115,9 +115,9 @@ export default [
     link: () =>
       html`
         <span>
-            <a href="static/docs/luna_macabra.pdf">Spanish</a>
+            <a href="/static/docs/luna_macabra.pdf">Spanish</a>
             |
-            <a href="static/docs/macabre_moon.pdf">English (MTL)</a>
+            <a href="/static/docs/macabre_moon.pdf">English (MTL)</a>
         </span>
     `,
   },
@@ -134,9 +134,9 @@ export default [
     link: () =>
       html`
         <span>
-            <a href="static/docs/morirte_de_frio.pdf">Spanish</a>
+            <a href="/static/docs/morirte_de_frio.pdf">Spanish</a>
             |
-            <a href="static/docs/freezing_to_death.pdf">English (MTL)</a>
+            <a href="/static/docs/freezing_to_death.pdf">English (MTL)</a>
         </span>
     `,
   },
