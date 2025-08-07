@@ -35,7 +35,7 @@ export default [
         month: "long",
         year: "numeric",
       });
-      const htmlEntries = entries.map(
+      const htmlEntries = entries.toReversed().map(
         (entry): HTMLStream => {
           const icon = (typeof entry.icon == "string")
             ? entry.icon
