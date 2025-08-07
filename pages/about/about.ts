@@ -33,7 +33,7 @@ export default [
         manages to seep into his mind. For him, thinking like a robot seems
         like an attractive idea: at least robots are programmed to fulfill a
         purpose. If asked, he would probably answer that, given
-        the choice, he would prefer to be a man with a amorphous face and an
+        the choice, he would prefer to be a man with an amorphous face and a
         squared mind.`,
       ];
       return new Promise((resolve) => resolve(content));
