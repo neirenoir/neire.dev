@@ -7,6 +7,22 @@ export function neiredevPage(main: HTMLStream[]) {
     head: [
       cssLink("/static/css/reset.css"),
       cssLink("/static/css/main.css"),
+      html`
+          <meta name="description" content="Paint it black.">
+          <meta name="robots" content="index, follow">
+
+          <meta name="author" content="neirenoir">
+          <html lang="en"> <!-- or "es", "fr", etc. -->
+          <link rel="icon" href="/static/images/favicon.svg" type="image/svg+xml">
+          <meta name="theme-color" content="#000000">
+
+          <!-- Twitter Card -->
+          <meta name="twitter:card" content="summary">
+          <meta name="twitter:title" content="neire.dev">
+          <meta name="twitter:description" content="Paint it black.">
+          <meta name="twitter:image" content="https://neire.dev/pages/static/images/icon.png">
+          <meta name="twitter:site" content="@neirenoir">
+      `,
     ],
     body: [
       html`
