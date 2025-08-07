@@ -124,7 +124,7 @@ export default [
   {
     name: "Hipotermia",
     description: "Lletres Joves Horta-Guinardó 2018 Noir Stories 1st prize.",
-    icon: "<span style='font-size: 0.9em;'>🖌</span>",
+    icon: "<span style='font-size: 0.9em;'>🖌&#xFE0E;</span>",
     role: "Author",
     technologies: [
       "Artpunk",
