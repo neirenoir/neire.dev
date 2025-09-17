@@ -1,30 +1,21 @@
 {
-  "version": "5",
+  "version": "4",
   "specifiers": {
-    "jsr:@std/assert@1": "1.0.13",
     "jsr:@std/cli@^1.0.8": "1.0.10",
     "jsr:@std/encoding@^1.0.5": "1.0.6",
     "jsr:@std/fmt@^1.0.3": "1.0.4",
     "jsr:@std/fs@*": "1.0.13",
     "jsr:@std/html@^1.0.3": "1.0.3",
     "jsr:@std/http@*": "1.0.12",
-    "jsr:@std/internal@^1.0.6": "1.0.10",
     "jsr:@std/internal@^1.0.9": "1.0.10",
     "jsr:@std/media-types@^1.1.0": "1.1.0",
     "jsr:@std/net@^1.0.4": "1.0.4",
-    "jsr:@std/path@*": "1.0.8",
-    "jsr:@std/path@^1.0.8": "1.0.8",
+    "jsr:@std/path@*": "1.1.1",
+    "jsr:@std/path@^1.0.8": "1.1.1",
     "jsr:@std/path@^1.1.1": "1.1.1",
-    "jsr:@std/streams@^1.0.8": "1.0.8",
-    "npm:@types/node@*": "22.5.4"
+    "jsr:@std/streams@^1.0.8": "1.0.8"
   },
   "jsr": {
-    "@std/assert@1.0.13": {
-      "integrity": "ae0d31e41919b12c656c742b22522c32fb26ed0cba32975cb0de2a273cb68b29",
-      "dependencies": [
-        "jsr:@std/internal@^1.0.6"
-      ]
-    },
     "@std/cli@1.0.10": {
       "integrity": "d047f6f4954a5c2827fe0963765ddd3d8b6cc7b7518682842645b95f571539dc"
     },
@@ -65,28 +56,14 @@
     "@std/net@1.0.4": {
       "integrity": "2f403b455ebbccf83d8a027d29c5a9e3a2452fea39bb2da7f2c04af09c8bc852"
     },
-    "@std/path@1.0.8": {
-      "integrity": "548fa456bb6a04d3c1a1e7477986b6cffbce95102d0bb447c67c4ee70e0364be"
-    },
     "@std/path@1.1.1": {
       "integrity": "fe00026bd3a7e6a27f73709b83c607798be40e20c81dde655ce34052fd82ec76",
       "dependencies": [
-        "jsr:@std/internal@^1.0.9"
+        "jsr:@std/internal"
       ]
     },
     "@std/streams@1.0.8": {
       "integrity": "b41332d93d2cf6a82fe4ac2153b930adf1a859392931e2a19d9fabfb6f154fb3"
-    }
-  },
-  "npm": {
-    "@types/node@22.5.4": {
-      "integrity": "sha512-FDuKUJQm/ju9fT/SeX/6+gBzoPzlVCzfzmGkwKvRHQVxi4BntVbyIwf6a4Xn62mrvndLiml6z/UBXIdEVjQLXg==",
-      "dependencies": [
-        "undici-types"
-      ]
-    },
-    "undici-types@6.19.8": {
-      "integrity": "sha512-ve2KP6f/JnbPBFyobGHuerC9g1FYGn/F8n1LWTwNxCEzd6IfqTwUQcNXgEtmmQ6DlRrC1hrSrBnCZPokRrDHjw=="
     }
   },
   "workspace": {

@@ -1,5 +1,5 @@
 /* Hide all content by default */
-p.page-content {
+p.page-content-about {
     display: none;
     height: max-content;
     overflow-y: auto;

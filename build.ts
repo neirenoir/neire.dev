@@ -4,10 +4,15 @@ import { copy } from "jsr:@std/fs/copy";
 import { basename, dirname, join } from "@std/path";
 import routes from "./pages/routes.ts";
 import { Route } from "./lib/router.ts";
+import { AssemblyStages } from "./lib/responses.ts";
+import { neiredevCurriculum } from "./pages/main.ts";
 
 const BUILD_DIR = "build/";
 const STATIC_DIR = "pages/static/";
 const DUMMY_URL = "http://localhost/";
+const FRAGMENT_HEADERS = {
+  "X-Assembly-Stage": AssemblyStages.FRAGMENT,
+};
 
 // Clear build if it already exists
 if (await exists(BUILD_DIR)) {
@@ -27,12 +32,24 @@ if (root == null) {
   throw new Error("FATAL: root route not found");
 }
 
+const allPages: Array<ReadableStream> = [];
+
 // Rendering index.html
 {
   const res = await routes.resolve(
     new Request(join(DUMMY_URL, root.pattern.pathname)),
   );
   await Deno.writeFile(join(BUILD_DIR, "index.html"), res.body!);
+
+  const resFragment = await routes.resolve(
+    new Request(
+      join(DUMMY_URL, root.pattern.pathname),
+      {
+        headers: FRAGMENT_HEADERS,
+      },
+    ),
+  );
+  allPages.push(resFragment.body!);
 }
 
 // Rendering the rest
@@ -52,7 +69,29 @@ if (root == null) {
       join(BUILD_DIR, dir, file, "index.html"),
       res.body!,
     );
-    node.children?.forEach(recRender);
+
+    const resFragment = await routes.resolve(
+      new Request(
+        join(DUMMY_URL, path),
+        {
+          headers: FRAGMENT_HEADERS,
+        },
+      ),
+    );
+    allPages.push(resFragment.body!);
+
+    if (node.children) {
+      await Promise.all(node.children.map(recRender));
+    }
   }
-  root.children?.forEach(recRender);
+
+  if (root.children) {
+    await Promise.all(root.children.map(recRender));
+  }
 }
+
+// Write the curriculum file
+await Deno.writeFile(
+  join(BUILD_DIR, "curriculum.html"),
+  await neiredevCurriculum(allPages),
+);
