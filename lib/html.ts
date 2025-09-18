@@ -15,7 +15,7 @@ export interface HTMLPageParams {
 export function htmlPage(
   { title, head, body }: HTMLPageParams,
 ): HTMLStream {
-  return stream`
+  return html`
     <!DOCTYPE html>
     <html>
       <head>
