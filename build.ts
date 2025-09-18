@@ -81,12 +81,18 @@ const allPages: Array<ReadableStream> = [];
     allPages.push(resFragment.body!);
 
     if (node.children) {
-      await Promise.all(node.children.map(recRender));
+      const renderPromises = node.children.map(recRender);
+      for (const renderPromise of renderPromises) {
+        await renderPromise;
+      }
     }
   }
 
   if (root.children) {
-    await Promise.all(root.children.map(recRender));
+    const renderPromises = root.children.map(recRender);
+    for (const renderPromise of renderPromises) {
+      await renderPromise;
+    }
   }
 }
 
