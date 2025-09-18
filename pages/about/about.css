@@ -51,3 +51,13 @@ nav.pagination-labels label::after {
         margin-bottom: 2rem;
     }
 }
+
+@container (--curriculum-mode = true) {
+    p.page-content-about {
+        display: block;
+    }
+
+    nav.pagination-labels {
+        display: none;
+    }
+}

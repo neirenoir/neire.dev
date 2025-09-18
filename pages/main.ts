@@ -1,4 +1,4 @@
-import { cssLink, html, htmlPage, HTMLStream } from "../lib/html.ts";
+import { css, cssLink, html, htmlPage, HTMLStream } from "../lib/html.ts";
 import { concat } from "../lib/streams.ts";
 import { cssNode } from "../lib/html.ts";
 
@@ -64,9 +64,14 @@ export async function neiredevCurriculum(main: HTMLStream[]) {
     title: "neire.dev",
     head: [
       cssNode(resetCss),
-      html`
-        <style>${mainCss}</style>
-      `,
+      cssNode(mainCss),
+      cssNode(
+        css`
+            :root {
+                --curriculum-mode: true;
+            }
+        `,
+      ),
       html`
           <meta name="description" content="Paint it black.">
           <meta name="author" content="neirenoir">
