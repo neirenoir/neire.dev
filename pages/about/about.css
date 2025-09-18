@@ -38,7 +38,7 @@ nav.pagination-labels label::after {
 }
 
 @media screen and (max-width: 768px) {
-    p.page-content {
+    p.page-content-about {
         display: block;
     }
 
@@ -52,9 +52,11 @@ nav.pagination-labels label::after {
     }
 }
 
-@container (--curriculum-mode = true) {
+@container style(--curriculum-mode: true) {
     p.page-content-about {
         display: block;
+        overflow-x: initial;
+        overflow-y: initial;
     }
 
     nav.pagination-labels {

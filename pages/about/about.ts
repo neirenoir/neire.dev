@@ -60,10 +60,10 @@ export default [
         >
 
         <h1>About Me</h1>
-        <p class="page-content" id="about-page1-content" role="tabpanel">
+        <p class="page-content-about" id="about-page1-content" role="tabpanel">
           ${content[0]}
         </p>
-        <p class="page-content" id="about-page2-content" role="tabpanel">
+        <p class="page-content-about" id="about-page2-content" role="tabpanel">
           ${content[1]}
         </p>
 
