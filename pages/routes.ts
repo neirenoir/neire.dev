@@ -9,6 +9,7 @@ import experience from "./experience/experience.ts";
 import portfolio from "./portfolio/portfolio.ts";
 import demos from "./demos/demos.ts";
 import contact from "./contact/contact.ts";
+import curriculum from "./curriculum.ts";
 
 export default new Router(
   [
@@ -46,6 +47,10 @@ export default new Router(
         {
           pattern: new URLPattern({ pathname: "/contact" }),
           content: async (req) => await assemble(req, contact),
+        },
+        {
+          pattern: new URLPattern({ pathname: "/curriculum" }),
+          content: async (req) => await assemble(req, curriculum),
         },
       ],
     },

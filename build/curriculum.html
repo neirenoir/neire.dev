@@ -1,0 +1,1030 @@
+
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>neire.dev</title>
+        
+        <style>
+          /* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+        </style>
+      
+        <style>
+          html {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+    background: #000;
+    color: white;
+    font-family: Overpass, monospace;
+    font-size: 15px;
+
+    scrollbar-width: thin;
+    scrollbar-color: white black;
+}
+
+body {
+    display: grid;
+    grid-template-columns: min-content 1fr; /* Navbar and main content */
+    grid-template-rows: 100%;
+    gap: 14px;
+    width: 90vw;
+    height: 80vh;
+    max-height: 575px;
+    max-width: 900px;
+}
+
+body > nav {
+    padding: 14px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+body > nav::after {
+    content: "";
+    position: absolute;
+    right: -7px;
+    top: 10%;
+    height: 80%;
+    width: 1px;
+    background-color: #fff;
+}
+
+nav a,
+nav span {
+    color: white;
+    text-decoration: none;
+    word-break: normal;
+    overflow-wrap: normal;
+    min-width: auto;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+.logo {
+    font-size: 1.35rem;
+    font-weight: 700;
+    font-family: Doto;
+}
+
+main {
+    display: flex;
+    padding: 14px;
+    position: relative;
+    max-width: 100%;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    grid-column: 1 / -1;
+    gap: 0.5em;
+}
+
+small {
+    font-size: 0.75rem;
+}
+
+ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+h1 {
+    font-size: 4rem;
+    font-family: Doto;
+    font-weight: 800;
+}
+
+h2 {
+    font-size: 1.9rem;
+    text-align: justify;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+    overflow-x: auto;
+    max-width: 100%;
+}
+
+p {
+    text-align: justify;
+    line-height: 1.5rem;
+}
+
+p,
+h1,
+h2,
+a {
+    word-break: break-word;
+    overflow-wrap: break-word;
+    min-width: 0;
+}
+
+@font-face {
+    font-family: Doto;
+    src: url(../fonts/Doto/Doto-VariableFont_ROND\,wght.ttf);
+}
+
+@font-face {
+    font-family: Overpass;
+    src: url(../fonts/Overpass_Mono/OverpassMono-VariableFont_wght.ttf);
+}
+
+/* This should prefetch Noto for when it's needed */
+@font-face {
+    font-family: Noto;
+    src: url(../../static/fonts/Noto/NotoSansSymbols-VariableFont_wght.ttf);
+}
+
+/* This should prefetch FA for when it's needed */
+@font-face {
+    font-family: "FontAwesome Brands";
+    src: url(../../static/fonts/FontAwesome/fa-brands-400.woff2);
+}
+
+@media screen and (max-width: 768px) {
+    html {
+        display: block;
+        padding: 1rem 0;
+        margin: 0 1rem;
+        overflow-x: hidden;
+    }
+
+    body {
+        display: flex;
+        flex-direction: column;
+        height: auto;
+        max-height: unset;
+        width: unset;
+        max-width: unset;
+        gap: 3px;
+        overflow: hidden;
+    }
+
+    body > nav {
+        display: flex;
+        flex-direction: row;
+        margin-top: 0.4rem;
+        flex-wrap: wrap;
+        gap: 1rem;
+        justify-content: initial;
+        font-size: 0.8em;
+    }
+
+    body > nav > ul {
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+        flex-wrap: wrap;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    body > nav > .logo {
+        width: 100%;
+        display: block;
+    }
+
+    main {
+        overflow-x: hidden;
+        height: auto;
+        max-height: 100%;
+    }
+
+    h1 {
+        font-size: 3.25rem;
+    }
+}
+
+        </style>
+      
+          <meta name="description" content="Paint it black.">
+          <meta name="author" content="neirenoir">
+          <html lang="en">
+          <meta name="theme-color" content="#000000">
+      
+      </head>
+      <body>
+        
+        <main>
+          
+        <h1>Paint it black.</h1>
+        <h2>Blockchain, web development, writing, consulting.</h2>
+      
+            <h1>Demos</h1>
+                Under construction.
+            </p>
+          
+        <style>
+          /* Hide all content by default */
+p.page-content {
+    display: none;
+    height: max-content;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+/* Show active content */
+#about-page1:checked ~ #about-page1-content,
+#about-page2:checked ~ #about-page2-content {
+    display: block;
+}
+
+/* Label styling */
+nav.pagination-labels {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 2rem;
+}
+
+nav.pagination-labels label {
+    cursor: pointer;
+    padding: 0.5rem 0.5rem;
+    border-radius: 4px;
+}
+
+nav.pagination-labels label::after {
+    font-size: 1.5rem;
+    content: "○";
+}
+
+/* Highlight active page button */
+#about-page1:checked ~ .pagination-labels label[for="about-page1"]::after,
+#about-page2:checked ~ .pagination-labels label[for="about-page2"]::after {
+    content: "◉";
+}
+
+@media screen and (max-width: 768px) {
+    p.page-content {
+        display: block;
+    }
+
+    /* Label styling */
+    nav.pagination-labels {
+        display: none;
+    }
+
+    main {
+        margin-bottom: 2rem;
+    }
+}
+
+        </style>
+
+        <!-- hidden forbidden holy tab buttons -->
+        <input
+          type="radio" name="pagination" id="about-page1"
+          role="tab"
+          checked hidden
+        >
+        <input
+          type="radio" name="pagination" id="about-page2"
+          role="tab"
+          hidden
+        >
+
+        <h1>About Me</h1>
+        <p class="page-content" id="about-page1-content" role="tabpanel">
+          Hello, I am the first person. Today, I have come to talk to you about
+        a bearded man with a squared face and an amorphous mind who spends
+        his days sitting in front of a clock, watching life go by. He is
+        waiting for the exact moment, though he’s not entirely sure for which;
+        what he is sure of is that he doesn’t want to miss it, and for that
+        reason, he prefers to trade hours of sleep for a few more hours in
+        front of the clock. This habit reflects on his face in the form of
+        dark bags under his eyes, too dark to blend in with skin toasted by
+        his burnout syndrome. The alternative, sleeping, would be worse: he
+        knows the clock keeps ticking even when he’s not looking. So he can
+        only rest a bit better when he's not sleeping. He doesn’t mind
+        dragging himself in the mornings: he’ll drink coffee, sure, that's
+        what it's for! And if anxiety consumes him after the third cup, he’ll
+        take the fourth one with some benzos, and if that's not enough, he’ll
+        have the fifth with one or two glasses of alcohol.
+        </p>
+        <p class="page-content" id="about-page2-content" role="tabpanel">
+          He stays in front of the clock, as if he were allergic to doing
+        anything more productive. Maybe he studies the clock to learn from it.
+        Yes, deep down, he would like to be more like a clock, where after one
+        comes two, and after two comes three. Perhaps that’s the same reason
+        he became a programmer, where everything is algorithms and surprises
+        are scarce. Maybe it’s for the same reason that he dresses in gray,
+        with plaid shirts, just in case one day the order surrounding him
+        manages to seep into his mind. For him, thinking like a robot seems
+        like an attractive idea: at least robots are programmed to fulfill a
+        purpose. If asked, he would probably answer that, given
+        the choice, he would prefer to be a man with an amorphous face and a
+        squared mind.
+        </p>
+
+        <nav class="pagination-labels" role="tablist">
+          <label for="about-page1" role="tab"></label>
+          <label for="about-page2" role="tab"></label>
+        </nav>
+      
+              
+        <style>
+          .contacts {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.contact {
+    color: white;
+    text-decoration: none;
+    font-size: 5rem;
+    font-family: Noto, "FontAwesome Brands", sans-serif;
+}
+
+a.mail {
+    display: flex;
+    justify-content: center;
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    margin-top: 0.8rem;
+}
+
+a.mail:hover {
+    text-decoration: underline;
+}
+
+@font-face {
+    font-family: Noto;
+    src: url(../../static/fonts/Noto/NotoSansSymbols-VariableFont_wght.ttf);
+}
+
+@font-face {
+    font-family: "FontAwesome Brands";
+    src: url(../../static/fonts/FontAwesome/fa-brands-400.woff2);
+}
+
+        </style>
+      
+              <div class="contacts">
+                  
+            <a
+                href="https://github.com/neirenoir/"
+                title="GitHub"
+                target="_blank"
+                class="contact"
+            >
+              
+            </a>
+        
+            <a
+                href="https://x.com/neirenoir/"
+                title="Twitter"
+                target="_blank"
+                class="contact"
+            >
+              𝕏
+            </a>
+        
+            <a
+                href="https://discordapp.com/users/neirenoir/"
+                title="Discord"
+                target="_blank"
+                class="contact"
+            >
+              <span style="font-size: 0.9em;"></span>
+            </a>
+        
+              </div>
+              <a class="mail" href="mailto:contact@neire.dev">
+                  contact@neire.dev
+              </a>
+            
+              
+        <style>
+          /* Top-level experience grid */
+ul.experience-entries {
+    display: flex;
+    position: relative;
+    gap: 1rem;
+    padding: 0.5rem 1.5rem 0 0;
+    list-style: none;
+    margin: 0;
+    overflow-y: auto;
+    scrollbar-width: thin;
+}
+
+ul.experience-entries::after {
+    content: "";
+    position: sticky;
+    bottom: 0;
+    height: 2rem;
+    background: linear-gradient(to top, black, transparent);
+    pointer-events: none;
+    grid-column: 1 / span 2;
+}
+
+/* Per-entry styling */
+.experience-entry {
+    display: flex;
+    flex-direction: row;
+    border: 1px solid white;
+    padding: 0.7rem;
+    gap: 1rem;
+}
+
+.experience-entry h2 {
+    font-size: 1.4rem;
+    margin: 0 0 0.5rem 0;
+}
+
+.experience-entry .experience-role,
+.experience-date {
+    font-size: 0.8rem;
+    opacity: 0.9;
+}
+
+/* experience description layout */
+.experience-description {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    margin-bottom: 0.8rem;
+}
+
+.experience-info {
+    display: flex;
+    flex-grow: 1;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.experience-icon {
+    flex: 0 0 100px;
+    width: 100px;
+    height: 100px;
+    display: grid;
+    place-items: center;
+    font-size: 5rem;
+    font-family: Noto, "FontAwesome Brands";
+}
+
+.experience-icon > img {
+    max-height: 5.5rem;
+    max-width: 5.5rem;
+}
+
+.experience-entry,
+.experience-logo,
+.marquee {
+    min-width: 0;
+}
+
+@font-face {
+    font-family: Noto;
+    src: url(../../static/fonts/Noto/NotoSansSymbols-VariableFont_wght.ttf);
+}
+
+@font-face {
+    font-family: "FontAwesome Brands";
+    src: url(../../static/fonts/FontAwesome/fa-brands-400.woff2);
+}
+
+@media screen and (max-width: 768px) {
+    ul.experience-entries {
+        padding-right: 0;
+    }
+
+    .experience-info {
+        text-align: center;
+    }
+
+    .experience-entry h2 {
+        text-align: center;
+    }
+
+    .experience-icon {
+        width: 70px;
+    }
+}
+
+        </style>
+      
+              <h1>Experience</h1>
+              <ul class="experience-entries">
+            <li class="experience-entry">
+              <div class="experience-logo">
+                <span class="experience-icon" role="img">
+                    <span style="margin-top: -0.2em;">⌂</span>
+                </span>
+              </div>
+              <div class="experience-info">
+                  <h2>Freelancer</h2>
+                  <h3>Smart Contract Developer</h3>
+                  <p class="experience-role">Jack of All Trades</p>
+                  <p class="experience-date">
+                      <span>November 2024</span>
+                      →
+                      <span>Now</span>
+                  </p>
+              </div>
+            </li>
+          
+            <li class="experience-entry">
+              <div class="experience-logo">
+                <span class="experience-icon" role="img">
+                    <span style="margin-top: -0.2em;"></span>
+                </span>
+              </div>
+              <div class="experience-info">
+                  <h2>Kanaloa Network AG</h2>
+                  <h3>Blockchain Solutions Engineering</h3>
+                  <p class="experience-role">Co-founder, CTO</p>
+                  <p class="experience-date">
+                      <span>April 2021</span>
+                      →
+                      <span>November 2024</span>
+                  </p>
+              </div>
+            </li>
+          
+            <li class="experience-entry">
+              <div class="experience-logo">
+                <span class="experience-icon" role="img">
+                    
+        <style>
+            .logo-ll {
+                font-size: 0.7em;
+                letter-spacing: 0;
+                margin-top: -0.5em;
+                transform: scale(1, 1.2);
+            }
+
+            .logo-ll * {
+                display: inline-block;
+            }
+
+            .logo-ll-ll {
+                transform: scale(0.5, 1.25);
+                letter-spacing: 0;
+                margin: 0 -0.25em;
+                font-weight: bold;
+                margin-bottom: -1em;
+                position: relative;
+                bottom: -3px;
+            }
+        </style>
+        <table class="logo-ll">
+            <tr>
+                <td>]</td><td><span class="logo-ll-ll">LL</span></td><td>{</td>
+            </tr>
+        </table>
+      
+                </span>
+              </div>
+              <div class="experience-info">
+                  <h2>Laboratori de Lletres</h2>
+                  <h3>Novel Writing Classes</h3>
+                  <p class="experience-role">Student</p>
+                  <p class="experience-date">
+                      <span>March 2019</span>
+                      →
+                      <span>November 2020</span>
+                  </p>
+              </div>
+            </li>
+          
+            <li class="experience-entry">
+              <div class="experience-logo">
+                <span class="experience-icon" role="img">
+                    <img src="../static/images/mermaid.svg" />
+                </span>
+              </div>
+              <div class="experience-info">
+                  <h2>Nereid</h2>
+                  <h3>Logistics Software Development</h3>
+                  <p class="experience-role">Developer</p>
+                  <p class="experience-date">
+                      <span>December 2016</span>
+                      →
+                      <span>August 2019</span>
+                  </p>
+              </div>
+            </li>
+          
+            <li class="experience-entry">
+              <div class="experience-logo">
+                <span class="experience-icon" role="img">
+                    <img src="../static/images/escoladeltreball.svg" />
+                </span>
+              </div>
+              <div class="experience-info">
+                  <h2>Institut Escola del Treball</h2>
+                  <h3>Web Application Development</h3>
+                  <p class="experience-role">Student</p>
+                  <p class="experience-date">
+                      <span>September 2016</span>
+                      →
+                      <span>June 2019</span>
+                  </p>
+              </div>
+            </li>
+          </ul>
+            
+          
+        <style>
+          /* Top-level portfolio grid */
+ul.portfolio-entries {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-auto-rows: auto;
+    gap: 1rem;
+    overflow-y: auto;
+    padding: 0.5rem 1.5rem 0 0;
+    list-style: none;
+    margin: 0;
+    position: relative;
+    scrollbar-width: thin;
+}
+
+ul.portfolio-entries::after {
+    content: "";
+    position: sticky;
+    bottom: 0;
+    height: 2rem;
+    background: linear-gradient(to top, black, transparent);
+    pointer-events: none;
+    grid-column: 1 / span 2;
+}
+
+/* Per-entry styling */
+.portfolio-entry {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid white;
+    padding: 1rem;
+}
+
+.portfolio-entry h2 {
+    font-size: 1.4rem;
+    margin: 0 0 0.5rem 0;
+}
+
+.portfolio-entry .portfolio-role {
+    font-size: 0.8rem;
+    margin: 0 0 0.8rem 0;
+    opacity: 0.9;
+}
+
+/* Portfolio description layout */
+.portfolio-description {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    margin-bottom: 0.8rem;
+}
+
+.portfolio-icon {
+    flex: 0 0 50px;
+    width: 50px;
+    height: 50px;
+    display: grid;
+    place-items: center;
+    font-size: 3rem;
+    font-family: Noto, "FontAwesome Brands";
+    margin-top: -0.2em;
+}
+
+/* Marquee animation system */
+.marquee {
+    overflow: hidden;
+    position: relative;
+    margin: 0 0 0.8rem 0;
+    mask-image: linear-gradient(
+        to right,
+        transparent 0%,
+        black 20px,
+        black calc(100% - 20px),
+        transparent 100%
+    );
+}
+
+.marquee ul {
+    display: flex;
+    gap: 0.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: max-content;
+    animation: marquee-scroll 12s linear infinite;
+    padding-right: 100%;
+    flex-direction: row;
+}
+
+@keyframes marquee-scroll {
+    0% {
+        transform: translateX(50%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.marquee:hover ul {
+    animation-play-state: paused;
+}
+
+.marquee li {
+    white-space: nowrap;
+    padding: 0.35rem 1rem;
+    flex-shrink: 0;
+}
+
+/* Link styling */
+.portfolio-entry a {
+    display: inline-block;
+    color: white;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    max-width: 100%;
+    font-size: 0.9rem;
+    opacity: 0.8;
+    transition: opacity 0.2s ease;
+}
+
+.portfolio-entry a:hover {
+    opacity: 1;
+    text-decoration: underline;
+}
+.portfolio-entry,
+.portfolio-description,
+.marquee {
+    min-width: 0;
+}
+
+@font-face {
+    font-family: Noto;
+    src: url(../../static/fonts/Noto/NotoSansSymbols-VariableFont_wght.ttf);
+}
+
+@font-face {
+    font-family: "FontAwesome Brands";
+    src: url(../../static/fonts/FontAwesome/fa-brands-400.woff2);
+}
+
+@media screen and (max-width: 768px) {
+    ul.portfolio-entries {
+        grid-template-columns: 1fr;
+        max-width: 100%;
+        box-sizing: border-box;
+        padding-right: 0;
+    }
+
+    ul.portfolio-entries::after {
+        grid-column: 1;
+    }
+}
+
+        </style>
+      
+          <h1>Portfolio</h1>
+          <ul class="portfolio-entries">
+            <li class="portfolio-entry">
+              <h2>Kanaloa Network</h2>
+              <p class="portfolio-role">CTO, Lead Developer</p>
+              <div class="portfolio-description">
+                <span class="portfolio-icon" role="img">
+                  
+                </span>
+                <span>Modular smart contracts factory with bespoke access control.</span>
+              </div>
+              <div class="marquee">
+                <ul style="animation-duration: 7.0710678118654755s;">
+                  <li>Solidity</li><li>Foundry</li><li>Avalanche</li><li>Lit</li><li>ethers.js</li><li>Lion</li><li>Nix</li><li>NixOS</li>
+                </ul>
+              </div>
+              <a href="https://app.kanaloa.network/">https://app.kanaloa.network/</a>
+            </li>
+          
+            <li class="portfolio-entry">
+              <h2>neire.dev</h2>
+              <p class="portfolio-role">Solo Developer</p>
+              <div class="portfolio-description">
+                <span class="portfolio-icon" role="img">
+                  <span style='font-size: 1.4em; margin-top: -0.4em;'>◎</span>
+                </span>
+                <span>This website. All handcrafted.</span>
+              </div>
+              <div class="marquee">
+                <ul style="animation-duration: 4.330127018922193s;">
+                  <li>TypeScript</li><li>Deno</li><li>Nix</li>
+                </ul>
+              </div>
+              <a href="https://neire.dev/">https://neire.dev/</a>
+            </li>
+          
+            <li class="portfolio-entry">
+              <h2>AEVEREST++</h2>
+              <p class="portfolio-role">Web Developer, Consultor</p>
+              <div class="portfolio-description">
+                <span class="portfolio-icon" role="img">
+                  ⛰
+                </span>
+                <span>2022 Avalanche Summit Hackathon winner. High throughput custom VM.</span>
+              </div>
+              <div class="marquee">
+                <ul style="animation-duration: 4.330127018922193s;">
+                  <li>TypeScript</li><li>Deno</li><li>Nix</li>
+                </ul>
+              </div>
+              <a href="https://www.blog.encode.club/avalanche-summit-hackathon-powered-by-encode-club-summary-and-prizewinners-52f4592ffc9d">https://www.blog.encode.club/avalanche-summit-hackathon-powered-by-encode-club-summary-and-prizewinners-52f4592ffc9d</a>
+            </li>
+          
+            <li class="portfolio-entry">
+              <h2><span style='font-size: 0.85em;'>You Don't Have The Right</span></h2>
+              <p class="portfolio-role">Solo Developer</p>
+              <div class="portfolio-description">
+                <span class="portfolio-icon" role="img">
+                  
+                </span>
+                <span>Minecraft mod. Enhances doLimitedCrafting gamerule.</span>
+              </div>
+              <div class="marquee">
+                <ul style="animation-duration: 5.5901699437494745s;">
+                  <li>Kotlin</li><li>Java</li><li>Minecraft Forge</li><li>Sponge Mixins</li><li>Gradle</li>
+                </ul>
+              </div>
+              <a href="https://modrinth.com/mod/you-dont-have-the-right">https://modrinth.com/mod/you-dont-have-the-right</a>
+            </li>
+          
+            <li class="portfolio-entry">
+              <h2>Bulking</h2>
+              <p class="portfolio-role">Solo Developer</p>
+              <div class="portfolio-description">
+                <span class="portfolio-icon" role="img">
+                  <span style='font-size: 1.4em; margin-top: -0.4em;'>♞</span>
+                </span>
+                <span>Minecraft mod. Overhaul of hunger system.</span>
+              </div>
+              <div class="marquee">
+                <ul style="animation-duration: 6.614378277661476s;">
+                  <li>Kotlin</li><li>Java</li><li>Minecraft Forge</li><li>Sponge Mixins</li><li>Architectury</li><li>Diet</li><li>Gradle</li>
+                </ul>
+              </div>
+              <a href="https://modrinth.com/mod/bulking">https://modrinth.com/mod/bulking</a>
+            </li>
+          
+            <li class="portfolio-entry">
+              <h2>Green Feathers</h2>
+              <p class="portfolio-role">Copilot</p>
+              <div class="portfolio-description">
+                <span class="portfolio-icon" role="img">
+                  ♣
+                </span>
+                <span>Minecraft mod. Adds stamina system.</span>
+              </div>
+              <div class="marquee">
+                <ul style="animation-duration: 5s;">
+                  <li>Java</li><li>Minecraft Forge</li><li>Sponge Mixins</li><li>Gradle</li>
+                </ul>
+              </div>
+              <a href="https://github.com/Darkona/Green-Feathers">https://github.com/Darkona/Green-Feathers</a>
+            </li>
+          
+            <li class="portfolio-entry">
+              <h2>WAIFU</h2>
+              <p class="portfolio-role">Smart Contract Developer</p>
+              <div class="portfolio-description">
+                <span class="portfolio-icon" role="img">
+                  <span style='font-family: Doto;'>:3</span>
+                </span>
+                <span>Token for the Scarlet Waifu Capital Management DAO.</span>
+              </div>
+              <div class="marquee">
+                <ul style="animation-duration: 5s;">
+                  <li>Solidity</li><li>Foundry</li><li>Avalanche</li><li>Nix</li>
+                </ul>
+              </div>
+              <a href="https://weebsite.xyz/">https://weebsite.xyz/</a>
+            </li>
+          
+            <li class="portfolio-entry">
+              <h2>Luna Macabra</h2>
+              <p class="portfolio-role">Author</p>
+              <div class="portfolio-description">
+                <span class="portfolio-icon" role="img">
+                  ☾
+                </span>
+                <span>Lletres Joves Horta-Guinardó 2016 Noir Stories 3rd prize.</span>
+              </div>
+              <div class="marquee">
+                <ul style="animation-duration: 4.330127018922193s;">
+                  <li>Cyberpunk</li><li>Noir</li><li>Spanish</li>
+                </ul>
+              </div>
+              
+        <span>
+            <a href="/static/docs/luna_macabra.pdf">Spanish</a>
+            |
+            <a href="/static/docs/macabre_moon.pdf">English (MTL)</a>
+        </span>
+    
+            </li>
+          
+            <li class="portfolio-entry">
+              <h2>Hipotermia</h2>
+              <p class="portfolio-role">Author</p>
+              <div class="portfolio-description">
+                <span class="portfolio-icon" role="img">
+                  <span style='font-size: 0.9em;'>🖌&#xFE0E;</span>
+                </span>
+                <span>Lletres Joves Horta-Guinardó 2018 Noir Stories 1st prize.</span>
+              </div>
+              <div class="marquee">
+                <ul style="animation-duration: 4.330127018922193s;">
+                  <li>Artpunk</li><li>Noir</li><li>Spanish</li>
+                </ul>
+              </div>
+              
+        <span>
+            <a href="/static/docs/morirte_de_frio.pdf">Spanish</a>
+            |
+            <a href="/static/docs/freezing_to_death.pdf">English (MTL)</a>
+        </span>
+    
+            </li>
+          </ul>
+        
+        </main>
+      
+        <footer>
+          <span>©</span>
+          <small>
+            neire.dev 2024-2025
+          </small>
+        </footer>
+      
+      </body>
+    </html>
+  

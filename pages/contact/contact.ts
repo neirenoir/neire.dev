@@ -12,7 +12,7 @@ export interface ContactEntry {
 export default [
   {
     header: AssemblyStages.OBJECT,
-    processor: (): Promise<object> => {
+    processor: (): Promise<ContactEntry[]> => {
       return new Promise((resolve) => resolve(contactEntries));
     },
   },

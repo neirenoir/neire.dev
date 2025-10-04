@@ -1,13 +1,11 @@
-import { cssLink, html, htmlPage, HTMLStream } from "../lib/html.ts";
-import { concat } from "../lib/streams.ts";
 
-export function neiredevPage(main: HTMLStream[]) {
-  return htmlPage({
-    title: "neire.dev",
-    head: [
-      cssLink("/static/css/reset.css"),
-      cssLink("/static/css/main.css"),
-      html`
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>neire.dev</title>
+        <link rel="stylesheet" href="/static/css/reset.css"><link rel="stylesheet" href="/static/css/main.css">
           <meta name="description" content="Paint it black.">
           <meta name="robots" content="index, follow">
 
@@ -22,10 +20,10 @@ export function neiredevPage(main: HTMLStream[]) {
           <meta name="twitter:description" content="Paint it black.">
           <meta name="twitter:image" content="https://neire.dev/pages/static/images/icon.png">
           <meta name="twitter:site" content="@neirenoir">
-      `,
-    ],
-    body: [
-      html`
+      
+      </head>
+      <body>
+        
         <nav>
           <span class="logo"><a href="/">neire.dev</a></span>
           <ul>
@@ -36,20 +34,21 @@ export function neiredevPage(main: HTMLStream[]) {
           </ul>
           <a href="/contact">Contact</a>
         </nav>
-      `,
-      html`
+      
         <main>
-          ${concat(...main)}
+          
+        <h1>Paint it black.</h1>
+        <h2>Blockchain, web development, writing, consulting.</h2>
+      
         </main>
-      `,
-      html`
+      
         <footer>
           <span>©</span>
           <small>
-            ${`neire.dev 2024-${new Date().getFullYear()}`}
+            neire.dev 2024-2025
           </small>
         </footer>
-      `,
-    ],
-  });
-}
+      
+      </body>
+    </html>
+  

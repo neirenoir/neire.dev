@@ -5,7 +5,6 @@ import { basename, dirname, join } from "@std/path";
 import routes from "./pages/routes.ts";
 import { Route } from "./lib/router.ts";
 import { AssemblyStages } from "./lib/responses.ts";
-import { neiredevCurriculum } from "./pages/main.ts";
 
 const BUILD_DIR = "build/";
 const STATIC_DIR = "pages/static/";
@@ -93,9 +92,3 @@ const allPages: Array<ReadableStream> = [];
     }
   }
 }
-
-// Write the curriculum file
-await Deno.writeFile(
-  join(BUILD_DIR, "curriculum.html"),
-  await neiredevCurriculum(allPages),
-);

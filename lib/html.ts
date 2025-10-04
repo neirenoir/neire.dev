@@ -32,11 +32,11 @@ export function htmlPage(
 }
 
 export function cssNode(contents: CSSStream | string): CSSStream {
-  return stream`<style>${contents}</style>`;
+  return html`<style>${contents}</style>`;
 }
 
 export function cssLink(path: string): HTMLStream {
-  return stream`<link rel="stylesheet" href="${path}">`;
+  return html`<link rel="stylesheet" href="${path}">`;
 }
 
 // Syntax highlighter trick template functions
