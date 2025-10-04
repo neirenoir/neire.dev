@@ -155,7 +155,7 @@ export default [
           "portfolio-page",
           html`
               <ul>
-                  ${htmlPortfolio.slice(4, -1)}
+                  ${htmlPortfolio.slice(4)}
               </ul>
           `,
         ),
