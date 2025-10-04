@@ -90,19 +90,6 @@ export default [
     link: new URL("https://github.com/Darkona/Green-Feathers"),
   },
   {
-    name: "WAIFU",
-    description: "Token for the Scarlet Waifu Capital Management DAO.",
-    icon: "<span style='font-family: Doto;'>:3</span>",
-    role: "Smart Contract Developer",
-    technologies: [
-      "Solidity",
-      "Foundry",
-      "Avalanche",
-      "Nix",
-    ],
-    link: new URL("https://weebsite.xyz"),
-  },
-  {
     name: "Luna Macabra",
     description: "Lletres Joves Horta-Guinardó 2016 Noir Stories 3rd prize.",
     icon: "☾",

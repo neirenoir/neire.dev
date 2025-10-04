@@ -235,7 +235,6 @@ ul.portfolio-entries::after {
     height: 2rem;
     background: linear-gradient(to top, black, transparent);
     pointer-events: none;
-    grid-column: 1 / span 2;
 }
 
 /* Per-entry styling */
@@ -276,7 +275,6 @@ ul.portfolio-entries::after {
     margin-top: -0.2em;
 }
 
-/* Marquee animation system */
 .marquee {
     overflow: hidden;
     position: relative;
