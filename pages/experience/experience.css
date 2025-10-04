@@ -69,6 +69,7 @@ ul.experience-entries::after {
 .experience-icon > img {
     max-height: 5.5rem;
     max-width: 5.5rem;
+    mix-blend-mode: difference;
 }
 
 .experience-entry,
